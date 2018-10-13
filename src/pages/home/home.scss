@@ -1,0 +1,15 @@
+@import './../../index.scss';
+
+header{
+  background-color: $pink-bit-us;
+  height: 20vw;
+  display: flex;
+  justify-content: "center";
+  align-items: "center";
+}
+
+img{
+  display: block;
+  margin: 0 auto;
+  height: 80%;
+}
