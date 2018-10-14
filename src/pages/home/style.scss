@@ -26,6 +26,12 @@ header{
 
 nav {
   display: flex;
+  width: 100%;
   justify-content: space-around;
   padding: 10px;
+
+  @media (max-width: 425px){
+      flex-direction: column;
+      padding: 0px;
+  }
 }
