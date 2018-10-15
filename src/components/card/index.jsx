@@ -4,7 +4,7 @@ import CardActionArea from '@material-ui/core/CardActionArea'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 
-import './style.scss'
+import style from './style.module.scss'
 
 export default () => (
   <Card className="card">
@@ -12,7 +12,7 @@ export default () => (
       <CardMedia
         component="img"
         alt="Contemplative Reptile"
-        className="media"
+        className={style.media}
         style={{ height: 250 }}
         image="https://www.yu.edu/sites/default/files/ThinkstockPhotos-658148844.jpg"
         title="Contemplative Reptile"

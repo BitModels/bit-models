@@ -2,25 +2,27 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from '@material-ui/core/Icon'
 
-import './style.scss'
+import style from './style.module.scss'
 
 const SearchBar = ({
   value, onChange, onClick, ...rest
 }) => (
-  <div className="container">
-    <div className="spacing" />
+  <div className={style.container}>
+    <div className={style.spacing} />
     <input
       onChange={onChange}
       value={value}
       type="text"
       name="search bar"
+      aria-label="Pelo que você se interessa?"
       placeholder="Pelo que você se interessa?"
       {...rest}
     />
     <button
       type="submit"
-      className="spacing"
+      className={style.spacing}
       onClick={onClick}
+      aria-label="pesquisar"
     >
       <Icon>search</Icon>
     </button>
