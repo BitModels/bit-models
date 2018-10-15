@@ -1,18 +1,14 @@
 import React from 'react'
-import { Redirect } from 'react-router'
 
 import SearchBar from '../../components/searchBar'
 
 import './style.scss'
 import logo from '../../resources/logo-bit-us-verde.png'
-import Button from '../../components/button'
+import NavButton from '../../components/button'
 
 class Home extends React.Component {
   state = {
     searchText: '',
-    redirectToAbout: false,
-    redirectToProfiles: false,
-    redirectToBePartOfIt: false,
   }
 
   handleSearchTextChange = ({ target: { value } }) => {
@@ -29,35 +25,10 @@ class Home extends React.Component {
     console.log(e)
   }
 
-  goToProfiles = () => {
-    this.setState({ redirectToProfiles: true })
-  }
-
-  goToBePartOfIt = () => {
-    this.setState({ redirectToBePartOfIt: true })
-  }
-
-  goToAbout = () => {
-    this.setState({ redirectToAbout: true })
-  }
-
   render() {
     const {
       searchText,
-      redirectToAbout,
-      redirectToProfiles,
-      redirectToBePartOfIt,
     } = this.state
-
-    if (redirectToAbout) {
-      return <Redirect push to="/sobre" />
-    }
-    if (redirectToProfiles) {
-      return <Redirect push to="/perfis" />
-    }
-    if (redirectToBePartOfIt) {
-      return <Redirect push to="/facaParte" />
-    }
     return (
       <div>
         <header>
@@ -70,9 +41,12 @@ class Home extends React.Component {
           />
         </header>
         <nav>
-          <Button text="PERFIS" onClick={this.goToProfiles} />
-          <Button text="FAÇA PARTE" onClick={this.goToBePartOfIt} />
-          <Button text="SOBRE" onClick={this.goToAbout} />
+          <ul>
+            <NavButton label="PERFIS" to="/perfis" />
+            <NavButton label="FAÇA PARTE" to="/facaParte" />
+            <NavButton label="SOBRE" to="/sobre" />
+          </ul>
+
         </nav>
       </div>
     )

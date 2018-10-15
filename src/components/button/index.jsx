@@ -1,24 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Button from '@material-ui/core/Button'
+import { Link } from 'react-router-dom'
 
 import './style.scss'
 
-const ContainedButton = ({ text, onClick, ...rest }) => (
-  <Button
-    variant="contained"
-    color="secondary"
-    className="containedButton"
-    onClick={onClick}
-    {...rest}
-  >
-    {text}
-  </Button>
+const NavButton = ({ label, to }) => (
+  <li className="container">
+    <Link to={to}>{label}</Link>
+  </li>
+
 )
 
-ContainedButton.propTypes = {
-  text: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+NavButton.propTypes = {
+  label: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired,
 }
 
-export default ContainedButton
+export default NavButton

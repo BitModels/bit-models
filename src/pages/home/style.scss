@@ -24,8 +24,9 @@ header{
   }
 }
 
-nav {
+ul {
   display: flex;
   justify-content: space-around;
   padding: 10px;
+  list-style-type: none;
 }
