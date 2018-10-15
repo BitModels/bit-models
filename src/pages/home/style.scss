@@ -35,3 +35,12 @@ nav {
       padding: 0px;
   }
 }
+
+.areasContainer {
+  padding: 10px;
+
+  @media (max-width: 425px){
+    display: flex;
+    justify-content: center;
+  }
+}

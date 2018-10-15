@@ -1,0 +1,31 @@
+import React from 'react'
+import Card from '@material-ui/core/Card'
+import CardActionArea from '@material-ui/core/CardActionArea'
+import CardContent from '@material-ui/core/CardContent'
+import CardMedia from '@material-ui/core/CardMedia'
+
+import './style.scss'
+
+export default () => (
+  <Card className="card">
+    <CardActionArea>
+      <CardMedia
+        component="img"
+        alt="Contemplative Reptile"
+        className="media"
+        style={{ height: 250 }}
+        image="https://www.yu.edu/sites/default/files/ThinkstockPhotos-658148844.jpg"
+        title="Contemplative Reptile"
+      />
+      <CardContent>
+        <h2>
+            Lizard
+        </h2>
+        <p>
+            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+            across all continents except Antarctica
+        </p>
+      </CardContent>
+    </CardActionArea>
+  </Card>
+)
