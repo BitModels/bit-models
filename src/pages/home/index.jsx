@@ -4,7 +4,7 @@ import SearchBar from '../../components/searchBar'
 
 import './style.scss'
 import logo from '../../resources/logo-bit-us-verde.png'
-import NavButton from '../../components/button'
+import NavButton from '../../components/navButton'
 
 class Home extends React.Component {
   state = {
@@ -46,8 +46,8 @@ class Home extends React.Component {
             <NavButton label="FAÇA PARTE" to="/facaParte" />
             <NavButton label="SOBRE" to="/sobre" />
           </ul>
-
         </nav>
+        <main>areas cards go here</main>
       </div>
     )
   }

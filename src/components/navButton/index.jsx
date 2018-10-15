@@ -6,9 +6,8 @@ import './style.scss'
 
 const NavButton = ({ label, to }) => (
   <li className="container">
-    <Link to={to}>{label}</Link>
+    <Link to={to} aria-label={label.toLowerCase()}>{label}</Link>
   </li>
-
 )
 
 NavButton.propTypes = {

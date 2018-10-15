@@ -14,6 +14,7 @@ const SearchBar = ({
       value={value}
       type="text"
       name="search bar"
+      aria-label="Pelo que você se interessa?"
       placeholder="Pelo que você se interessa?"
       {...rest}
     />
@@ -21,6 +22,7 @@ const SearchBar = ({
       type="submit"
       className="spacing"
       onClick={onClick}
+      aria-label="pesquisar"
     >
       <Icon>search</Icon>
     </button>
