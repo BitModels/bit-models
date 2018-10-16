@@ -19,22 +19,36 @@
   @media (max-width: 425px){
     height: 30vh;
     .img{
-      height: 70%;
+      height: 50%;
     }
   }
 }
 
-.ul {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  padding: 10px;
-  margin-top: 0px;
 
-  @media (max-width: 425px){
-      padding: 0px;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+.nav{
+  .ul {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding: 10px;
+    margin-top: 0px;
+  
+    @media (max-width: 425px){
+        padding: 0px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
   }
+}
+
+.main{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+
+  .cardContainer{
+    padding: 10px;
+  } 
 }

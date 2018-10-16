@@ -5,6 +5,8 @@ import SearchBar from '../../components/searchBar'
 import style from './style.module.scss'
 import logo from '../../resources/logo-bit-us-verde.png'
 import NavButton from '../../components/navButton'
+import Card from '../../components/card'
+import areas from '../../testData/areas'
 
 class Home extends React.Component {
   state = {
@@ -47,7 +49,19 @@ class Home extends React.Component {
             <NavButton label="SOBRE" to="/sobre" />
           </ul>
         </nav>
-        <main>areas cards go here</main>
+        <main className={style.main}>
+          {areas.map(area => (
+            <div className={style.cardContainer}>
+              <Card
+                key={area.id}
+                image={area.image}
+                altImage={area.imageDescription}
+                title={area.name}
+                content={area.description}
+              />
+            </div>
+          ))}
+        </main>
       </div>
     )
   }
