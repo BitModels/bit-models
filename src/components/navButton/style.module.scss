@@ -1,9 +1,12 @@
 @import './../../index.scss';
 
+$button-width: 20vw;
+$button-height: 45px;
+
 .li{
   margin: 10px;
-  width: 25vw;
-  height: 45px;
+  width: $button-width;
+  height: $button-height;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,6 +18,11 @@
   .link{
     text-decoration: none;
     color: white;
+    width: 100%;
+    height: $button-height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   @media (max-width: 425px){
