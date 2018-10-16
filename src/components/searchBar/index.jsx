@@ -11,6 +11,7 @@ const SearchBar = ({
     <div className={style.spacing} />
     <input
       onChange={onChange}
+      className={style.input}
       value={value}
       type="text"
       name="search bar"
@@ -20,7 +21,7 @@ const SearchBar = ({
     />
     <button
       type="submit"
-      className={style.spacing}
+      className={`${style.spacing} ${style.button}`}
       onClick={onClick}
       aria-label="pesquisar"
     >

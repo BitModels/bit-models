@@ -7,7 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia'
 import style from './style.module.scss'
 
 export default () => (
-  <Card className="card">
+  <Card className={style.card}>
     <CardActionArea>
       <CardMedia
         component="img"
@@ -18,10 +18,10 @@ export default () => (
         title="Contemplative Reptile"
       />
       <CardContent>
-        <h2>
+        <h2 className={style.h2}>
             Lizard
         </h2>
-        <p>
+        <p className={style.p}>
             Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
             across all continents except Antarctica
         </p>

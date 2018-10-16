@@ -5,8 +5,14 @@ import { Link } from 'react-router-dom'
 import style from './style.module.scss'
 
 const NavButton = ({ label, to }) => (
-  <li className={style.container}>
-    <Link to={to} aria-label={label.toLowerCase()}>{label}</Link>
+  <li className={style.li}>
+    <Link
+      to={to}
+      aria-label={label.toLowerCase()}
+      className={style.link}
+    >
+      {label}
+    </Link>
   </li>
 )
 

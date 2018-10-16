@@ -31,8 +31,8 @@ class Home extends React.Component {
     } = this.state
     return (
       <div>
-        <header>
-          <img src={logo} alt="logo" />
+        <header className={style.header}>
+          <img className={style.img} src={logo} alt="logo" />
           <SearchBar
             value={searchText}
             onChange={this.handleSearchTextChange}
@@ -40,8 +40,8 @@ class Home extends React.Component {
             onKeyPress={this.handleKeyPress}
           />
         </header>
-        <nav>
-          <ul>
+        <nav className={style.nav}>
+          <ul className={style.ul}>
             <NavButton label="PERFIS" to="/perfis" />
             <NavButton label="FAÇA PARTE" to="/facaParte" />
             <NavButton label="SOBRE" to="/sobre" />
