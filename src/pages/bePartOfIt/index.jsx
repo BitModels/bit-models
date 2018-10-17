@@ -1,20 +1,12 @@
 import React from 'react'
 
 import style from './style.module.scss'
-import logo from '../../resources/logo-bitUs-verde.png'
+import Header from '../../components/header'
 
-class BePartOfIt extends React.Component {
-  render() {
-    return (
-      <div>
-        <header>
-          <img src={logo} alt="logo" />
-        </header>
-        <div>
-        BePartOfIt
-        </div>
-      </div>
-    )
-  }
-}
+const BePartOfIt = () => (
+  <div className={style.container}>
+    <Header />
+  </div>
+)
+
 export default BePartOfIt

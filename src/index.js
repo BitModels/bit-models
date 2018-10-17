@@ -12,10 +12,10 @@ import Profiles from './pages/profiles'
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route path="/" exact component={App} />
       <Route path="/sobre" component={About} />
       <Route path="/facaParte" component={BePartOfIt} />
       <Route path="/perfis" component={Profiles} />
+      <Route path="/" component={App} />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root'),

@@ -1,0 +1,23 @@
+@import './../../index.scss';
+
+.header{
+  background-color: $pink-bit-us;
+  height: 20vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+
+  .img{
+    display: flex;
+    margin: 0 auto;
+    height: 90%;
+  }
+
+  @media (max-width: 425px){
+    height: 15vh;
+  }
+}
+

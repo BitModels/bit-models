@@ -1,15 +1,13 @@
 import React from 'react'
 
 import style from './style.module.scss'
-import logo from '../../resources/logo-bitUs-verde.png'
 import logoBitGirls from '../../resources/logo-bitGirls.png'
 import logoGitHub from '../../resources/gitHub_logo.jpeg'
+import Header from '../../components/header'
 
 const About = () => (
   <div className={style.container}>
-    <header className={style.header}>
-      <img className={style.img} src={logo} alt="logo" />
-    </header>
+    <Header />
     <div className={style.aboutContainer}>
 
       <article className={style.article}>
