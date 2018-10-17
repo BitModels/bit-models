@@ -3,7 +3,7 @@ import React from 'react'
 import SearchBar from '../../components/searchBar'
 
 import style from './style.module.scss'
-import logo from '../../resources/logo-bit-us-verde.png'
+import logo from '../../resources/logo-bitUs-verde.png'
 import NavButton from '../../components/navButton'
 import Card from '../../components/card'
 import areas from '../../testData/areas'

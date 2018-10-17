@@ -1,7 +1,7 @@
 import React from 'react'
 
 import style from './style.module.scss'
-import logo from '../../resources/logo-bit-us-verde.png'
+import logo from '../../resources/logo-bitUs-verde.png'
 
 class Profiles extends React.Component {
   render() {
