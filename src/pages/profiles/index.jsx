@@ -1,9 +1,10 @@
 import React from 'react'
 import Icon from '@material-ui/core/Icon'
+import { Link } from 'react-router-dom'
 
-import profiles from '../../testData/profiles'
 import style from './style.module.scss'
-import NavButton from '../../components/navButton'
+import profiles from '../../testData/profiles'
+import NavBar from '../../components/navBar'
 import SearchHeader from '../../components/searchHeader'
 
 class Profiles extends React.Component {
@@ -12,7 +13,12 @@ class Profiles extends React.Component {
   }
 
   renderProfileButton = profile => (
-    <div key={profile.id} className={style.itemContainer}>
+    <Link
+      to="perfil"
+      aria-label={`ir para perfil de ${profile.name}`}
+      key={profile.id}
+      className={style.itemContainer}
+    >
       <div className={style.iconContainer}>
         <Icon className={style.icon}>computer</Icon>
       </div>
@@ -24,7 +30,7 @@ class Profiles extends React.Component {
           {profile.description}
         </span>
       </div>
-    </div>
+    </Link>
   )
 
   render() {
@@ -33,13 +39,22 @@ class Profiles extends React.Component {
         <SearchHeader
           onSearch={this.handleSearch}
         />
-        <nav className={style.nav}>
-          <ul className={style.ul}>
-            <NavButton label="INÍCIO" to="/" />
-            <NavButton label="FAÇA PARTE" to="/facaParte" />
-            <NavButton label="SOBRE" to="/sobre" />
-          </ul>
-        </nav>
+        <NavBar
+          buttons={[
+            {
+              label: 'INÍCIO',
+              to: '/',
+            },
+            {
+              label: 'FAÇA PARTE',
+              to: '/facaParte',
+            },
+            {
+              label: 'SOBRE',
+              to: '/sobre',
+            },
+          ]}
+        />
         <main className={style.main}>
           {profiles.map(p => this.renderProfileButton(p))}
         </main>

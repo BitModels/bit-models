@@ -23,23 +23,6 @@
   }
 }
 
-.nav{
-  .ul {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    padding: 10px;
-    margin: 0px;
-  
-    @media (max-width: 425px){
-        padding: 0px;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-  }
-}
-
 .main{
   display: flex;
   flex-flow: row wrap;
@@ -53,6 +36,8 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    text-decoration: none;
+    color: black;
 
     .iconContainer{
       background-color: $green-bit-us;
