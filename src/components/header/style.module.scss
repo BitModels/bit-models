@@ -10,10 +10,11 @@
   align-items: center;
   padding: 10px;
 
-  .img{
-    display: flex;
-    margin: 0 auto;
-    height: 90%;
+  .link{
+      height: 90%;
+    .img{
+      height: 100%;
+    }
   }
 
   @media (max-width: 425px){
