@@ -14,7 +14,10 @@ class Profiles extends React.Component {
 
   renderProfileButton = profile => (
     <Link
-      to="perfil"
+      to={{
+        pathname: 'perfil',
+        state: profile,
+      }}
       aria-label={`ir para perfil de ${profile.name}`}
       key={profile.id}
       className={style.itemContainer}
