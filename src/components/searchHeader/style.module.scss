@@ -1,0 +1,26 @@
+@import './../../index.scss';
+
+.header{
+  background-color: $pink-bit-us;
+  height: 30vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+
+  .link{
+    height: 80%;
+    .img{
+      height: 100%;
+    }
+  }
+
+  @media (max-width: 425px){
+    height: 30vh;
+    .img{
+      height: 50%;
+    }
+  }
+}

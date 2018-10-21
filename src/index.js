@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 
 import './index.scss'
 import App from './App'
@@ -8,15 +9,28 @@ import About from './pages/about'
 import BePartOfIt from './pages/bePartOfIt'
 import Profiles from './pages/profiles'
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#CE7477',
+    },
+    secondary: {
+      main: '#BA96C7',
+    },
+  },
+})
+
 /* eslint react/jsx-filename-extension: 0 no-undef: 0 */
 ReactDOM.render(
-  <BrowserRouter>
-    <Switch>
-      <Route path="/sobre" component={About} />
-      <Route path="/facaParte" component={BePartOfIt} />
-      <Route path="/perfis" component={Profiles} />
-      <Route path="/" component={App} />
-    </Switch>
-  </BrowserRouter>,
+  <MuiThemeProvider theme={theme}>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/sobre" component={About} />
+        <Route path="/facaParte" component={BePartOfIt} />
+        <Route path="/perfis" component={Profiles} />
+        <Route path="/" component={App} />
+      </Switch>
+    </BrowserRouter>
+  </MuiThemeProvider>,
   document.getElementById('root'),
 )
