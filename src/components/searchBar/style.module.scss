@@ -10,10 +10,11 @@ $border-radius: 20px;
   margin: 5px 0px 5px 0px;
 
   .button{
-    padding-top: 5px;
-    padding-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     border-width: 0px;
-
+    background-color: white;
+    height: 24px;
     span{
       color: #605E63;
     }
@@ -29,7 +30,7 @@ $border-radius: 20px;
     margin: 0px 10px 0px 10px;
     width: 80%;
     font-size: 16px;
-    text-align: center; 
+    text-align: center;
     border-radius: $border-radius;
   }
 
