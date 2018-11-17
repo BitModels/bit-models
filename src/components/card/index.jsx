@@ -4,6 +4,7 @@ import MaterialCard from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
+import LinesEllipsis from 'react-lines-ellipsis'
 
 import style from './style.module.scss'
 
@@ -20,13 +21,17 @@ const Card = ({
         image={image}
         title={altImage}
       />
-      <CardContent>
+      <CardContent classes={{ root: style.content }}>
         <h2 className={style.h2}>
           {title}
         </h2>
-        <p className={style.p}>
-          {content}
-        </p>
+        <LinesEllipsis
+          className={style.p}
+          text={content}
+          maxLine="7"
+          trimRight
+          basedOn="letters"
+        />
       </CardContent>
     </CardActionArea>
   </MaterialCard>

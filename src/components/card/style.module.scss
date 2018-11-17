@@ -1,8 +1,12 @@
 .card{
   width: 345px;
-  
+
   .media {
-    object-fit: 'cover',
+    object-fit: cover,
+  }
+
+  .content {
+    height: 200px;
   }
 
   .h2{
