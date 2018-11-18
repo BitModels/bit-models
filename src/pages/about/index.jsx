@@ -2,7 +2,7 @@ import React from 'react'
 
 import style from './style.module.scss'
 import logoBitGirls from '../../resources/logo-bitGirls.png'
-import logoGitHub from '../../resources/gitHub_logo.jpeg'
+import logoGitHub from '../../resources/gitHub_logo.png'
 import Header from '../../components/header'
 import NavBar from '../../components/navBar'
 
@@ -30,13 +30,10 @@ const About = () => (
       <article className={style.article}>
         <h1>Sobre</h1>
         <p className={style.p}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies orci lacus, at venenatis risus commodo id. Suspendisse semper convallis imperdiet. Nunc ornare orci et nisl porta accumsan. Vestibulum placerat ac felis eu tempus. Duis nec tellus et tortor bibendum congue. Integer aliquet neque velit, id lacinia augue cursus at. Mauris eget elit risus. Donec et scelerisque velit, vel tempus sem. Integer pulvinar risus risus, et placerat nisi ultrices at. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum venenatis volutpat mollis. Fusce feugiat eu tortor at sodales.
+        o BitUs é uma plataforma de divulgação de mulheres que atuam em áreas da Computação. O projeto está sendo desenvolvido pela graduanda Fernanda Duarte, é orientado pela professora Mirella M. Moro e faz parte da disciplina Monografia em Sistemas de Informação ofertada pelo Departamento de Ciência da Computação da UFMG.
         </p>
         <p className={style.p}>
-      Aliquam erat volutpat. In nec pretium nunc. Integer eget dolor id velit sollicitudin accumsan molestie sed eros. Nulla accumsan, sem non vestibulum tristique, arcu augue dignissim arcu, vel bibendum nisi nulla vel ipsum. Quisque eget velit condimentum, imperdiet quam quis, mattis mi. Suspendisse efficitur sapien quis mi hendrerit, et finibus ex eleifend. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In et viverra tortor, vitae sagittis neque. Integer urna justo, commodo quis sapien ut, molestie pulvinar mi. Quisque faucibus, ipsum quis viverra accumsan, diam elit pellentesque sem, a tempor nisl risus pellentesque neque. Sed dictum, est eu mollis rhoncus, tellus odio venenatis magna, nec varius est est ac dolor. Aliquam hendrerit est luctus odio dictum fermentum. Quisque placerat est non lobortis fringilla.
-        </p>
-        <p className={style.p}>
-      Sed in porttitor massa. Proin pellentesque pretium lorem ut tempor. Sed ut urna sed justo scelerisque faucibus. Donec in tortor sed dolor egestas gravida. Sed nec dui vel nisl fermentum sodales. Nullam mollis vitae nibh a sagittis. Mauris varius imperdiet tortor dictum faucibus. Nunc nec erat fermentum, convallis metus a, accumsan ex. Nulla imperdiet mi in tempus feugiat.
+        O BitUs tem como objetivo atrair garotas do ensino médio para a Computação mostrando a elas que existem diversas formas de atuação na área e que mulheres fazem parte de todas elas, inspirando as garotas e auxiliando-as a enxergarem suas semelhantes na Computação.
         </p>
         <p className={style.p}>
           O Projeto BitUs espera ser acessível para todos. Caso você identifique algum problema de acessibilidade envie um email para projetobitus@gmail.com informando-o e nós faremos o possível para corrigi-lo.

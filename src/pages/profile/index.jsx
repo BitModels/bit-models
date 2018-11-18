@@ -42,18 +42,20 @@ class Profiles extends React.Component {
               </section>
 
               <section className={style.section}>
-                <h3 className={style.h3}>História</h3>
-                <p className={style.p}>{profile.history}</p>
-              </section>
-
-              <section className={style.section}>
-                <h3 className={style.h3}>Estudos</h3>
-                <p className={style.p}>{profile.studies}</p>
-              </section>
-
-              <section className={style.section}>
                 <h3 className={style.h3}>Trabalhos</h3>
                 <p className={style.p}>{profile.work}</p>
+              </section>
+
+              <section className={style.section}>
+                <h3 className={style.h3}>
+                  Acompanhe a
+                  {' '}
+                  {profile.name}
+                  :
+                </h3>
+                <div className={style.linksContainer}>
+                  {profile.links.map(l => (<a className={style.a} href={l} target="_blank" rel="noopener noreferrer">{l}</a>))}
+                </div>
               </section>
             </article>
             <aside className={style.aside}>
@@ -65,10 +67,6 @@ class Profiles extends React.Component {
               <div>
                 <span className={style.infoTitle}>Educação: </span>
                 <span className={style.info}>{profile.education}</span>
-              </div>
-              <div>
-                <span className={style.infoTitle}>Passatempos: </span>
-                <span className={style.info}>{profile.hobbies}</span>
               </div>
               <div className={style.line} />
             </aside>
