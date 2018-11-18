@@ -27,9 +27,10 @@
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 
   .cardContainer{
     padding: 10px;
-  } 
+    margin: 0px 50px;
+  }
 }

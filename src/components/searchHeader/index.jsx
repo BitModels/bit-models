@@ -40,6 +40,7 @@ class SearchHeader extends React.Component {
           onChange={this.handleSearchTextChange}
           onClick={this.handleSearch}
           onKeyPress={this.handleKeyPress}
+          {...this.props}
         />
       </header>
     )

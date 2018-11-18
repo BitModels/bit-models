@@ -4,14 +4,23 @@ import style from './style.module.scss'
 import Card from '../../components/card'
 import NavBar from '../../components/navBar'
 import SearchHeader from '../../components/searchHeader'
-import areas from '../../testData/areas'
+import areasData from '../../testData/areas'
 
 class Home extends React.Component {
-  handleSearch = (e) => {
-    console.log(e)
+  state = {
+    areas: areasData,
+  }
+
+  handleSearch = (text) => {
+    const filteredAreas = areasData.filter(a => (
+      a.name.toLowerCase().includes(text.toLowerCase())
+    ))
+
+    this.setState({ areas: filteredAreas })
   }
 
   render() {
+    const { areas } = this.state
     return (
       <div>
         <SearchHeader
