@@ -4,10 +4,27 @@ import style from './style.module.scss'
 import logoBitGirls from '../../resources/logo-bitGirls.png'
 import logoGitHub from '../../resources/gitHub_logo.jpeg'
 import Header from '../../components/header'
+import NavBar from '../../components/navBar'
 
 const About = () => (
   <div className={style.container}>
     <Header />
+    <NavBar
+      buttons={[
+        {
+          label: 'INÍCIO',
+          to: '/',
+        },
+        {
+          label: 'FAÇA PARTE',
+          to: '/facaParte',
+        },
+        {
+          label: 'SOBRE',
+          to: '/sobre',
+        },
+      ]}
+    />
     <div className={style.aboutContainer}>
 
       <article className={style.article}>
