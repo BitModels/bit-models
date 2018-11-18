@@ -1,0 +1,39 @@
+@import './../../index.scss';
+
+
+  .itemContainer{
+    width: 345px;
+    height: 10vh;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    text-decoration: none;
+    color: black;
+
+    .iconContainer{
+      background-color: $green-bit-us;
+      border-radius: 100%;
+      height: 45px;
+      width: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .icon{
+        color: white;
+      }
+    }
+
+    .dataContainer{
+      width: calc(100% - 45px);
+      padding: 0px 0px 0px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      .name{
+        font-size: 1.2rem;
+      }
+    }
+  }

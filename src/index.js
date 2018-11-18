@@ -9,6 +9,7 @@ import About from './pages/about'
 import BePartOfIt from './pages/bePartOfIt'
 import Profiles from './pages/profiles'
 import Profile from './pages/profile'
+import Area from './pages/area'
 
 const theme = createMuiTheme({
   palette: {
@@ -30,6 +31,7 @@ ReactDOM.render(
         <Route path="/facaParte" component={BePartOfIt} />
         <Route path="/perfis" component={Profiles} />
         <Route path="/perfil" component={Profile} />
+        <Route path="/area" component={Area} />
         <Route path="/" component={App} />
       </Switch>
     </BrowserRouter>

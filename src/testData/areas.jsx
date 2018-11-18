@@ -2,7 +2,7 @@ export default [
   {
     id: 0,
     name: 'Publicidade',
-    description: 'Você pode criar: Anúncios de realidade aumentada que virtualmente trazem produtos para a vida. Um desfile de moda digital com modelos personalizáveis que combinam com o tamanho do vestuário e o tipo de corpo do consumidor. Painéis de vídeo que permitem que os anunciantes alterem suas mensagens diariamente.',
+    description: '<span>Você pode criar:</span><ul><li>Anúncios de realidade aumentada que virtualmente trazem produtos para a vida.</li><li>Um desfile de moda digital com modelos personalizáveis que combinam com o tamanho do vestuário e o tipo de corpo do consumidor.</li><li>Painéis de vídeo que permitem que os anunciantes alterem suas mensagens diariamente.</li></ul>',
     image: 'https://www.yu.edu/sites/default/files/ThinkstockPhotos-658148844.jpg',
     imageDescription: 'Lorem ipsum dolor sit amet.',
   },

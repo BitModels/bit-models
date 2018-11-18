@@ -6,6 +6,7 @@ import style from './style.module.scss'
 import profiles from '../../testData/profiles'
 import NavBar from '../../components/navBar'
 import SearchHeader from '../../components/searchHeader'
+import ProfileButton from '../../components/profileButton'
 
 class Profiles extends React.Component {
   handleSearch = (e) => {
@@ -59,7 +60,7 @@ class Profiles extends React.Component {
           ]}
         />
         <main className={style.main}>
-          {profiles.map(p => this.renderProfileButton(p))}
+          {profiles.map(p => <ProfileButton profileData={p} />)}
         </main>
       </div>
     )

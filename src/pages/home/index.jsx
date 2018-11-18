@@ -41,7 +41,9 @@ class Home extends React.Component {
                 image={area.image}
                 altImage={area.imageDescription}
                 title={area.name}
-                content={area.description}
+                pathName="area"
+                areaData={area}
+                ariaLabel={`card que redireciona para mais detalhes da área ${area.name}`}
               />
             </div>
           ))}

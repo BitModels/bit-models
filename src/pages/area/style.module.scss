@@ -1,0 +1,63 @@
+@import "./../../index.scss";
+
+.container {
+  .areaContainer {
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .article {
+      width: 70%;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+
+      @media (max-width: 425px) {
+        width: 100%;
+      }
+
+      @media (min-width: 426px) and (max-width: 768px) {
+        width: 80%;
+      }
+
+      .articleContent {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        .h1 {
+          margin-left: 20px;
+        }
+        .img {
+          height: 300px;
+          object-fit: cover;
+          margin: 20px 20px 10px 20px;
+        }
+      }
+    }
+  }
+
+  .aside {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0px 0px 0px 10px;
+    margin: 20px 0px 0px 0px;
+
+    @media (max-width: 425px) {
+      width: 90%;
+    }
+
+    @media (max-width: 768px) {
+      border-left: 0px;
+      border-top: 6px solid $green-bit-us;
+    }
+
+    .h2 {
+      align-self: flex-start;
+    }
+  }
+}
