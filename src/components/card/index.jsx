@@ -25,7 +25,6 @@ const Card = ({
           component="img"
           alt={altImage}
           className={style.media}
-          style={{ height: 250 }}
           image={image}
           title={altImage}
         />

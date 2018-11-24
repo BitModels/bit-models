@@ -4,8 +4,16 @@
   .card{
     width: 345px;
 
-    .media {
-      object-fit: cover,
+    @media (max-width: 425px){
+      width: 100%;
+    }
+
+    .media{
+      object-fit: cover;
+      height: 250px;
+      @media (max-width: 375px){
+        height: 150px;
+      }
     }
 
     .h2{

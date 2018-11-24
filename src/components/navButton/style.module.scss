@@ -27,5 +27,13 @@ $button-height: 45px;
 
   @media (max-width: 425px){
     width: 90%;
+    margin: 3px;
+    font-size: 15px;
+  }
+
+  @media (min-width: 426px) and (max-width: 990px) {
+    width: 23vw;
+    margin: 3px;
+    font-size: 15px;
   }
 }

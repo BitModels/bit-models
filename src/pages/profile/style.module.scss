@@ -5,12 +5,65 @@
     justify-content: center;
   .main{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 80%;
     margin: 20px 0px;
+
+    @media (max-width: 768px){
+      flex-direction: column;
+      width: 100%;
+
+      .titleContainer{
+        width: 100%;
+        max-width: 1080px;
+        padding: 0px 10px 0px 10px;
+        .h1{
+          font-size: 1.5rem;
+          font-weight: bold;
+        }
+        .h2{
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .titleContainer{
+      width: 100%;
+      max-width: 1080px;
+      @media (max-width: 768px){
+        padding: 0px 10px 0px 10px;
+        align-items: center;
+        .h1{
+          font-size: 1.5rem;
+          font-weight: bold;
+        }
+        .h2{
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .contentContainer{
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      @media (max-width: 768px){
+        flex-direction: column;
+      }
+    }
+
     .article{
       width: 70%;
+      max-width: 720px;
+      text-align: justify;
+
+      @media (max-width: 768px){
+        width: 100%;
+        order: 1;
+        padding: 0px 10px 0px 10px;
+      }
 
       .h1, .h3{
         font-weight: bold;
@@ -23,7 +76,7 @@
       .linksContainer {
         display: flex;
         flex-direction: column;
-
+        overflow-wrap: break-word;
         .a {
           text-decoration: none;
         }
@@ -31,14 +84,29 @@
     }
     .aside{
       width: 30%;
+      max-width: 360px;
       display: flex;
       flex-direction: column;
       padding-left: 10px;
+
+      @media (max-width: 768px){
+        width: 100%;
+        max-width: none;
+        padding: 10px 10px 0px 10px;
+      }
+
       .img{
         width: 80%;
+        max-width: 210px;
         padding-bottom: 10px;
         height: auto;
         align-self: center;
+
+        @media (max-width: 768px){
+          height: 200px;
+          width: auto;
+          object-fit: contain;
+        }
       }
 
       .infoTitle{

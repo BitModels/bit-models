@@ -30,7 +30,7 @@ const About = () => (
       <article className={style.article}>
         <h1>Sobre</h1>
         <p className={style.p}>
-        o BitUs é uma plataforma de divulgação de mulheres que atuam em áreas da Computação. O projeto está sendo desenvolvido pela graduanda Fernanda Duarte, é orientado pela professora Mirella M. Moro e faz parte da disciplina Monografia em Sistemas de Informação ofertada pelo Departamento de Ciência da Computação da UFMG.
+        O BitUs é uma plataforma de divulgação de mulheres que atuam em áreas da Computação. O projeto está sendo desenvolvido pela graduanda Fernanda Duarte, é orientado pela professora Mirella M. Moro e faz parte da disciplina Monografia em Sistemas de Informação ofertada pelo Departamento de Ciência da Computação da UFMG.
         </p>
         <p className={style.p}>
         O BitUs tem como objetivo atrair garotas do ensino médio para a Computação mostrando a elas que existem diversas formas de atuação na área e que mulheres fazem parte de todas elas, inspirando as garotas e auxiliando-as a enxergarem suas semelhantes na Computação.

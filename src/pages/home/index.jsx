@@ -3,7 +3,7 @@ import React from 'react'
 import style from './style.module.scss'
 import Card from '../../components/card'
 import NavBar from '../../components/navBar'
-import SearchHeader from '../../components/searchHeader'
+import Header from '../../components/header'
 import areasData from '../../testData/areas'
 
 class Home extends React.Component {
@@ -23,8 +23,9 @@ class Home extends React.Component {
     const { areas } = this.state
     return (
       <div>
-        <SearchHeader
+        <Header
           onSearch={this.handleSearch}
+          searchBar
         />
         <NavBar
           buttons={[

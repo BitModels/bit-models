@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import style from './style.module.scss'
 import profilesData from '../../testData/profiles'
 import NavBar from '../../components/navBar'
-import SearchHeader from '../../components/searchHeader'
+import Header from '../../components/header'
 import ProfileButton from '../../components/profileButton'
 
 class Profiles extends React.Component {
@@ -49,9 +49,10 @@ class Profiles extends React.Component {
     const { profiles } = this.state
     return (
       <div>
-        <SearchHeader
+        <Header
           onSearch={this.handleSearch}
           placeholder="Pesquisar"
+          searchBar
         />
         <NavBar
           buttons={[
