@@ -5,7 +5,7 @@ import Icon from '@material-ui/core/Icon'
 import style from './style.module.scss'
 
 const SearchBar = ({
-  value, onChange, onClick, ...rest
+  value, onChange, onClick, placeholder, ...rest
 }) => (
   <div className={style.container}>
     <div className={style.spacing} />
@@ -16,7 +16,7 @@ const SearchBar = ({
       type="text"
       name="search bar"
       aria-label="Pelo que você se interessa?"
-      placeholder="Pelo que você se interessa?"
+      placeholder={placeholder || 'Pelo que você se interessa?'}
       {...rest}
     />
     <button

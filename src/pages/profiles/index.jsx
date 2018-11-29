@@ -10,7 +10,7 @@ import ProfileButton from '../../components/profileButton'
 
 class Profiles extends React.Component {
   state = {
-    profiles: profilesData,
+    profiles: profilesData.sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0)),
   }
 
   handleSearch = (text) => {

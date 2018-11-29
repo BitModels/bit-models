@@ -8,7 +8,7 @@ import areasData from '../../testData/areas'
 
 class Home extends React.Component {
   state = {
-    areas: areasData,
+    areas: areasData.sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0)),
   }
 
   handleSearch = (text) => {

@@ -42,7 +42,6 @@ Card.propTypes = {
   image: PropTypes.string.isRequired,
   altImage: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
   pathName: PropTypes.string.isRequired,
   ariaLabel: PropTypes.string.isRequired,
   areaData: PropTypes.object.isRequired,

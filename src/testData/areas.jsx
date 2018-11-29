@@ -254,7 +254,7 @@ export default [
   },
   {
     id: 33,
-    name: 'Rôbos e Inteligência Artifical',
+    name: 'Robótica',
     description: '<span>Você pode projetar:</span><ul><li>Sistemas de segurança com reconhecimento de rosto, fala e manuscrito.</li><li>Um robô que pode realizar uma cirurgia cerebral enquanto o paciente está em uma máquina de ressonância magnética, possibilitando operações impossíveis atualmente.</li>',
     image: robo,
     imageDescription: 'Lorem ipsum dolor sit amet.',

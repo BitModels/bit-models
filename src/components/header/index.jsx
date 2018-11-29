@@ -26,7 +26,7 @@ class SearchHeader extends React.Component {
   }
 
   render() {
-    const { searchBar } = this.props
+    const { searchBar, placeholder } = this.props
     return (
       <header className={style.header}>
         <Link
@@ -42,7 +42,8 @@ class SearchHeader extends React.Component {
             onChange={this.handleSearchTextChange}
             onClick={this.handleSearch}
             onKeyPress={this.handleKeyPress}
-            {...this.props}
+            placeholder={placeholder}
+
           />
         ) }
       </header>
