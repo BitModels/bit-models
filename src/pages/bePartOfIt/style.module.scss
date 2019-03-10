@@ -1,8 +1,19 @@
 .contentContainer {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 
-  .p {
+  .title{
     font-size: 25px;
+  }
+
+  .description {
+
+  }
+
+  .formContainer {
+    display: flex;
+    flex-direction: column;
   }
 }
