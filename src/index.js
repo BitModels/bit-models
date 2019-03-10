@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
@@ -21,6 +22,8 @@ const theme = createMuiTheme({
     },
   },
 })
+
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL
 
 /* eslint react/jsx-filename-extension: 0 no-undef: 0 */
 ReactDOM.render(
