@@ -5,7 +5,6 @@ import style from './style.module.scss'
 import Card from '../../components/card'
 import NavBar from '../../components/navBar'
 import Header from '../../components/header'
-import areasData from '../../testData/areas'
 
 class Home extends React.Component {
   state = {
@@ -23,10 +22,11 @@ class Home extends React.Component {
   }
 
   handleSearch = (text) => {
-    const filteredAreas = areasData.filter(a => (
+    const { areas } = this.state
+
+    const filteredAreas = areas.filter(a => (
       a.name.toLowerCase().includes(text.toLowerCase())
     ))
-
     this.setState({ areas: filteredAreas })
   }
 
@@ -61,7 +61,7 @@ class Home extends React.Component {
                 image={area.image}
                 altImage={area.imageDescription}
                 title={area.name}
-                pathName="area"
+                pathName={`area/${area._id}`}
                 areaData={area}
                 ariaLabel={`card que redireciona para mais detalhes da área ${area.name}`}
               />

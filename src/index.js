@@ -33,8 +33,8 @@ ReactDOM.render(
         <Route path="/sobre" component={About} />
         <Route path="/facaParte" component={BePartOfIt} />
         <Route path="/perfis" component={Profiles} />
-        <Route path="/perfil" component={Profile} />
-        <Route path="/area" component={Area} />
+        <Route path="/perfil/:id" component={Profile} />
+        <Route path="/area/:id" component={Area} />
         <Route path="/" component={App} />
       </Switch>
     </BrowserRouter>
