@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
@@ -22,6 +23,8 @@ const theme = createMuiTheme({
   },
 })
 
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL
+
 /* eslint react/jsx-filename-extension: 0 no-undef: 0 */
 ReactDOM.render(
   <MuiThemeProvider theme={theme}>
@@ -30,8 +33,8 @@ ReactDOM.render(
         <Route path="/sobre" component={About} />
         <Route path="/facaParte" component={BePartOfIt} />
         <Route path="/perfis" component={Profiles} />
-        <Route path="/perfil" component={Profile} />
-        <Route path="/area" component={Area} />
+        <Route path="/perfil/:id" component={Profile} />
+        <Route path="/area/:id" component={Area} />
         <Route path="/" component={App} />
       </Switch>
     </BrowserRouter>

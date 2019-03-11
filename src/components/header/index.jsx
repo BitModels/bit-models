@@ -26,7 +26,7 @@ class SearchHeader extends React.Component {
   }
 
   render() {
-    const { searchBar, placeholder } = this.props
+    const { onSearch, placeholder } = this.props
     return (
       <header className={style.header}>
         <Link
@@ -36,7 +36,7 @@ class SearchHeader extends React.Component {
         >
           <img className={style.img} src={logo} alt="logo" />
         </Link>
-        { searchBar && (
+        { onSearch && (
           <SearchBar
             value={this.state.searchText}
             onChange={this.handleSearchTextChange}
@@ -52,7 +52,13 @@ class SearchHeader extends React.Component {
 }
 
 SearchHeader.propTypes = {
-  onSearch: PropTypes.func.isRequired,
+  onSearch: PropTypes.func,
+  placeholder: PropTypes.string,
+}
+
+SearchHeader.defaultProps = {
+  onSearch: null,
+  placeholder: '',
 }
 
 export default SearchHeader
