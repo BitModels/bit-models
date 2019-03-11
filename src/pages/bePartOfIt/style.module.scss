@@ -8,12 +8,20 @@
     font-size: 25px;
   }
 
-  .description {
-
-  }
-
   .formContainer {
     display: flex;
     flex-direction: column;
+
+    .input{
+      margin-top: 10px;
+    }
+
+    .textarea{
+      margin-top: 20px;
+    }
+
+    .select {
+      width: 100%;
+    }
   }
 }
