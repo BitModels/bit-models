@@ -1,15 +1,20 @@
 import React from "react"
-import axios from 'axios'
+import axios from "axios"
 import PropTypes from "prop-types"
-import TextField from "@material-ui/core/TextField"
 import { withStyles } from "@material-ui/core/styles"
 import Input from "@material-ui/core/Input"
 import InputLabel from "@material-ui/core/InputLabel"
 import MenuItem from "@material-ui/core/MenuItem"
 import FormControl from "@material-ui/core/FormControl"
 import Select from "@material-ui/core/Select"
-import Button from '@material-ui/core/Button'
-import Chip from '@material-ui/core/Chip'
+import Button from "@material-ui/core/Button"
+import Chip from "@material-ui/core/Chip"
+import FormHelperText from "@material-ui/core/FormHelperText"
+import {
+  ValidatorForm,
+  TextValidator,
+  SelectValidator
+} from "react-material-ui-form-validator"
 
 import style from "./style.module.scss"
 import Header from "../../components/header"
@@ -37,7 +42,7 @@ const styles = theme => ({
     marginTop: 20,
     marginBottom: 20,
     width: 200
-  },
+  }
 })
 
 const ITEM_HEIGHT = 48
@@ -51,32 +56,43 @@ const MenuProps = {
   }
 }
 
-const getStyles = (name, that) =>
-  ({
-    fontWeight:
-      that.state.selectedAreas.indexOf(name) === -1
-        ? that.props.theme.typography.fontWeightRegular
-        : that.props.theme.typography.fontWeightMedium
-  })
+const getStyles = (name, that) => ({
+  fontWeight:
+    that.state.selectedAreas.indexOf(name) === -1
+      ? that.props.theme.typography.fontWeightRegular
+      : that.props.theme.typography.fontWeightMedium
+})
 
+const ERROR_MESSAGES = {
+  REQUIRED: "Este campo é obrigatório.",
+  SELECT: "Selecione pelo menos uma área."
+}
 
 class BePartOfIt extends React.Component {
   state = {
     selectedAreas: [],
-    areas: []
+    areas: [],
+    name: "",
+    location: "",
+    education: "",
+    about: "",
+    work: "",
+    socialNetwork: ""
   };
 
   async componentDidMount() {
     let { data: areas } = await axios({
-      method: 'get',
-      url: '/areas',
+      method: "get",
+      url: "/areas"
     })
-    // eslint-disable-next-line no-nested-ternary
-    areas = areas.sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0))
+    areas = areas.sort((a, b) =>
+      // eslint-disable-next-line no-nested-ternary
+      a.name < b.name ? -1 : a.name > b.name ? 1 : 0
+    )
     this.setState({ areas })
   }
 
-  handleChange = event => {
+  handleSelectChange = event => {
     this.setState({ selectedAreas: event.target.value })
   };
 
@@ -93,9 +109,45 @@ class BePartOfIt extends React.Component {
     })
   };
 
+  handleSubmitForm = async e => {
+    e.preventDefault()
+    const {
+      selectedAreas,
+      name,
+      location,
+      education,
+      about,
+      work,
+      socialNetwork
+    } = this.state
+
+    const response = await axios({
+      method: "post",
+      url: "/profile",
+      data: {
+        selectedAreas,
+        name,
+        location,
+        education,
+        about,
+        work,
+        socialNetwork
+      }
+    })
+    console.log(response)
+  };
+
   render() {
     const { classes } = this.props
-    const { areas } = this.state
+    const {
+      areas,
+      name,
+      location,
+      education,
+      about,
+      work,
+      socialNetwork
+    } = this.state
 
     return (
       <div className={style.container}>
@@ -121,80 +173,137 @@ class BePartOfIt extends React.Component {
             <main>
               <h1 className={style.title}>Faça parte</h1>
               <p>
-              Quer ver o seu perfil publicado no BitUs? Conte-nos sobre você no
-              formulário abaixo!
+                Quer ver o seu perfil publicado no BitUs? Conte-nos sobre você
+                no formulário abaixo!
               </p>
-              <form noValidate autoComplete="off" className={style.formContainer}>
-                <TextField id="name" label="Nome" className={style.input} />
-                <TextField
+              <ValidatorForm
+                noValidate
+                autoComplete="off"
+                className={style.formContainer}
+                onSubmit={this.handleSubmitForm}
+              >
+                <TextValidator
+                  id="name"
+                  label="Nome"
+                  onChange={e => this.setState({ name: e.target.value })}
+                  className={style.input}
+                  validators={["required"]}
+                  errorMessages={[ERROR_MESSAGES.REQUIRED]}
+                  value={name}
+                  required
+                />
+                <TextValidator
                   id="location"
                   label="Localização"
+                  onChange={e => this.setState({ location: e.target.value })}
                   className={style.input}
+                  validators={["required"]}
+                  errorMessages={[ERROR_MESSAGES.REQUIRED]}
+                  value={location}
+                  required
                 />
-                <TextField
-                  id="location"
+                <TextValidator
+                  id="education"
                   label="Educação"
+                  onChange={e => this.setState({ education: e.target.value })}
                   placeholder="ex.: Faculdade, pós-graduacão, cursos, etc"
                   className={style.input}
+                  validators={["required"]}
+                  errorMessages={[ERROR_MESSAGES.REQUIRED]}
+                  value={education}
+                  required
                 />
                 <FormControl className={classes.formControl}>
-                  <InputLabel htmlFor="select-multiple-chip">Áreas</InputLabel>
-                  <Select
-                    multiple
+                  <SelectValidator
+                    SelectProps={{
+                      multiple: true,
+                      MenuProps,
+                      renderValue: selected => (
+                        <div className={classes.chips}>
+                          {selected.map(value => (
+                            <Chip
+                              key={value}
+                              label={value}
+                              className={classes.chip}
+                            />
+                          ))}
+                        </div>
+                      )
+                    }}
+                    label="Áreas"
                     value={this.state.selectedAreas}
-                    onChange={this.handleChange}
+                    onChange={this.handleSelectChange}
                     input={<Input id="select-multiple-chip" />}
-                    renderValue={selected => (
-                      <div className={classes.chips}>
-                        {selected.map(value => (
-                          <Chip key={value} label={value} className={classes.chip} />
-                        ))}
-                      </div>
-                    )}
-                    MenuProps={MenuProps}
+                    validators={["required"]}
+                    errorMessages={[ERROR_MESSAGES.SELECT]}
                   >
                     {areas.map(area => (
-                      <MenuItem key={area._id} value={area.name} style={getStyles(area.name, this)}>
+                      <MenuItem
+                        key={area._id}
+                        value={area.name}
+                        style={getStyles(area.name, this)}
+                      >
                         {area.name}
                       </MenuItem>
                     ))}
-                  </Select>
+                  </SelectValidator>
                 </FormControl>
-                <TextField
+                <TextValidator
                   id="about"
                   label="Sobre"
+                  onChange={e => this.setState({ about: e.target.value })}
+                  placeholder="Fale um pouco da sua história, de onde você é, como se interessou pela sua área de estudo e de atuação e tudo o que for relevante para te conhecer"
                   multiline
                   rows={5}
-                  variant="outlined"
                   className={style.textarea}
+                  validators={["required"]}
+                  errorMessages={[ERROR_MESSAGES.REQUIRED]}
+                  value={about}
+                  required
                 />
-                <TextField
-                  id="works"
+                <TextValidator
+                  id="work"
                   label="Trabalhos"
+                  onChange={e => this.setState({ work: e.target.value })}
+                  placeholder="Conte sobre seus projetos pessoais, na vida acadêmica e no mercado de trabalho"
                   multiline
                   rows={5}
-                  variant="outlined"
                   className={style.textarea}
+                  validators={["required"]}
+                  errorMessages={[ERROR_MESSAGES.REQUIRED]}
+                  value={work}
+                  required
                 />
-                <TextField
-                  id="social-networks"
+                <TextValidator
+                  id="social-network"
                   label="Como acompanhar sua história?"
+                  onChange={e =>
+                    this.setState({ socialNetwork: e.target.value })
+                  }
                   placeholder="ex.: LinkedIn, Instagram, Github, etc"
                   multiline
                   rows={5}
-                  variant="outlined"
                   className={style.textarea}
+                  validators={["required"]}
+                  errorMessages={[ERROR_MESSAGES.REQUIRED]}
+                  value={socialNetwork}
+                  required
                 />
                 <div className={style.buttonContainer}>
-                  <Button variant="contained" color="primary" className={classes.button}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    className={classes.button}
+                    onChange={this.handleForm}
+                    type="submit"
+                  >
                     Enviar
                   </Button>
                 </div>
-              </form>
+              </ValidatorForm>
             </main>
           </div>
         </div>
-
       </div>
     )
   }
