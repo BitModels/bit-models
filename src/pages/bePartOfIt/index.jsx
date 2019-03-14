@@ -3,13 +3,11 @@ import axios from "axios"
 import PropTypes from "prop-types"
 import { withStyles } from "@material-ui/core/styles"
 import Input from "@material-ui/core/Input"
-import InputLabel from "@material-ui/core/InputLabel"
 import MenuItem from "@material-ui/core/MenuItem"
+import CircularProgress from '@material-ui/core/CircularProgress'
 import FormControl from "@material-ui/core/FormControl"
-import Select from "@material-ui/core/Select"
 import Button from "@material-ui/core/Button"
 import Chip from "@material-ui/core/Chip"
-import FormHelperText from "@material-ui/core/FormHelperText"
 import {
   ValidatorForm,
   TextValidator,
@@ -40,8 +38,11 @@ const styles = theme => ({
   },
   button: {
     marginTop: 20,
-    marginBottom: 20,
+    marginBottom: 50,
     width: 200
+  },
+  progress: {
+    color: 'black'
   }
 })
 
@@ -76,8 +77,9 @@ class BePartOfIt extends React.Component {
     location: "",
     education: "",
     about: "",
-    work: "",
-    socialNetwork: ""
+    projects: "",
+    socialNetwork: "",
+    loading: false,
   };
 
   async componentDidMount() {
@@ -117,24 +119,31 @@ class BePartOfIt extends React.Component {
       location,
       education,
       about,
-      work,
+      projects,
       socialNetwork
     } = this.state
 
-    const response = await axios({
-      method: "post",
-      url: "/profile",
-      data: {
-        selectedAreas,
-        name,
-        location,
-        education,
-        about,
-        work,
-        socialNetwork
-      }
-    })
-    console.log(response)
+    try {
+      this.setState({loading: true})
+      await axios({
+        method: "post",
+        url: "/profile",
+        data: {
+          areas: selectedAreas,
+          name,
+          location,
+          education,
+          about,
+          projects,
+          socialNetwork
+        }
+      })
+
+      this.setState({loading: false})
+    } catch(error) {
+      this.setState({loading: false})
+      console.log(error)
+    }
   };
 
   render() {
@@ -145,8 +154,9 @@ class BePartOfIt extends React.Component {
       location,
       education,
       about,
-      work,
-      socialNetwork
+      projects,
+      socialNetwork,
+      loading
     } = this.state
 
     return (
@@ -220,13 +230,15 @@ class BePartOfIt extends React.Component {
                       MenuProps,
                       renderValue: selected => (
                         <div className={classes.chips}>
-                          {selected.map(value => (
-                            <Chip
-                              key={value}
-                              label={value}
-                              className={classes.chip}
-                            />
-                          ))}
+                          {selected.map(value => {
+                            const selectedArea = areas.find((item) => item._id === value)
+                            return(
+                              <Chip
+                                key={value}
+                                label={selectedArea.name}
+                                className={classes.chip}
+                              />
+                            )})}
                         </div>
                       )
                     }}
@@ -240,7 +252,7 @@ class BePartOfIt extends React.Component {
                     {areas.map(area => (
                       <MenuItem
                         key={area._id}
-                        value={area.name}
+                        value={area._id}
                         style={getStyles(area.name, this)}
                       >
                         {area.name}
@@ -262,16 +274,16 @@ class BePartOfIt extends React.Component {
                   required
                 />
                 <TextValidator
-                  id="work"
-                  label="Trabalhos"
-                  onChange={e => this.setState({ work: e.target.value })}
+                  id="projects"
+                  label="Projetos"
+                  onChange={e => this.setState({ projects: e.target.value })}
                   placeholder="Conte sobre seus projetos pessoais, na vida acadêmica e no mercado de trabalho"
                   multiline
                   rows={5}
                   className={style.textarea}
                   validators={["required"]}
                   errorMessages={[ERROR_MESSAGES.REQUIRED]}
-                  value={work}
+                  value={projects}
                   required
                 />
                 <TextValidator
@@ -297,7 +309,7 @@ class BePartOfIt extends React.Component {
                     onChange={this.handleForm}
                     type="submit"
                   >
-                    Enviar
+                    {loading? <CircularProgress size={20} style={{color: '#605E63'}} /> : "Enviar"}
                   </Button>
                 </div>
               </ValidatorForm>

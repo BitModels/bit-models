@@ -59,7 +59,7 @@ class Profile extends React.Component {
 
                   <section className={style.section}>
                     <h3 className={style.h3}>Trabalhos</h3>
-                    <p className={style.p}>{profile.work}</p>
+                    <p className={style.p}>{profile.projects}</p>
                   </section>
 
                   <section className={style.section}>
