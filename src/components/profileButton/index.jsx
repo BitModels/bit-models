@@ -8,7 +8,7 @@ import style from './style.module.scss'
 const ProfileButton = ({ profileData }) => (
   <Link
     to={{
-      pathname: `perfil/${profileData._id}`,
+      pathname: `/perfil/${profileData._id}`,
       state: profileData,
     }}
     aria-label={`ir para perfil de ${profileData.name}`}
