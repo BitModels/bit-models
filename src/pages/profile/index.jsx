@@ -70,10 +70,7 @@ class Profile extends React.Component {
                     :
                     </h3>
                     <div className={style.linksContainer}>
-                      {
-                        // eslint-disable-next-line react/no-array-index-key
-                        profile.links.map((l, key) => (<a className={style.a} href={l} target="_blank" rel="noopener noreferrer" key={key}>{l}</a>))
-                      }
+                      profile.socialNetworks
                     </div>
                   </section>
                 </article>
