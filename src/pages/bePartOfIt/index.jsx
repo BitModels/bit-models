@@ -183,7 +183,7 @@ class BePartOfIt extends React.Component {
             <main>
               <h1 className={style.title}>Faça parte</h1>
               <p>
-                Quer ver o seu perfil publicado no BitUs? Conte-nos sobre você
+                Quer ver o seu perfil publicado no BitModels? Conte-nos sobre você
                 no formulário abaixo!
               </p>
               <ValidatorForm
