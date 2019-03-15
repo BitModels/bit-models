@@ -21,6 +21,32 @@ const theme = createMuiTheme({
       main: '#BA96C7',
     },
   },
+  overrides: {
+    MuiFormLabel: {
+      root: {
+        "&$focused": {
+          color: "#4286f4",
+          fontWeight: "bold"
+        },
+
+      }
+    },
+    MuiInput: {
+      underline: {
+        '&:after': {
+          borderBottom: "2px solid #4286f4"
+        }
+      }
+    },
+    MuiOutlinedInput :{
+      root: {
+        '&$focused $notchedOutline': {
+          borderColor: "#4286f4",
+          borderWidth: 2,
+        },
+      }
+    }
+  }
 })
 
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL

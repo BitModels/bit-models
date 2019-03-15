@@ -17,6 +17,7 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-html-parser": "^2.0.2",
+    "react-material-ui-form-validator": "^2.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.4"
   },
@@ -31,8 +32,11 @@
   ],
   "devDependencies": {
     "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1"
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.11.1",
+    "prettier": "^1.16.4"
   }
 }
