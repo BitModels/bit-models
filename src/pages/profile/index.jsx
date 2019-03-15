@@ -70,7 +70,7 @@ class Profile extends React.Component {
                     :
                     </h3>
                     <div className={style.linksContainer}>
-                      profile.socialNetworks
+                      {profile.socialNetworks}
                     </div>
                   </section>
                 </article>
