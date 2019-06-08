@@ -12,6 +12,33 @@
       .title{
         font-size: 25px;
       }
+      .img {
+        width: 80%;
+        max-width: 210px;
+        padding-bottom: 10px;
+        height: auto;
+        align-self: center;
+
+        @media (max-width: 768px){
+          height: 200px;
+          width: auto;
+          object-fit: contain;
+        }
+      }
+      .imageContainer {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: center;
+        .uploadImage {
+          width: 400px;
+          @media (max-width: 768px){
+            width: 100%;
+            max-width: 400px;
+          }
+        }
+      }
+
       .formContainer {
         display: flex;
         flex-direction: column;

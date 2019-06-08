@@ -80,6 +80,7 @@ class BePartOfIt extends React.Component {
     projects: "",
     socialNetwork: "",
     loading: false,
+    image: ''
   };
 
   async componentDidMount() {
@@ -120,9 +121,9 @@ class BePartOfIt extends React.Component {
       education,
       about,
       projects,
-      socialNetwork
+      socialNetwork,
+      image
     } = this.state
-
     try {
       this.setState({loading: true})
       await axios({
@@ -135,18 +136,40 @@ class BePartOfIt extends React.Component {
           education,
           about,
           projects,
-          socialNetwork
+          socialNetwork,
+          image
         }
       })
 
       this.setState({loading: false})
     } catch(error) {
       this.setState({loading: false})
-      console.log(error)
     }
   };
 
+  uploadImage = (widget) => {
+    widget.open()
+  }
+
+  checkUploadResult = (error, result, widget) => {
+    if (!error && result && result.event === "success") {
+      this.setState({ image: result.info.secure_url})
+      widget.close()
+    }
+  }
+
   render() {
+    // eslint-disable-next-line no-undef
+    const widget = window.cloudinary.createUploadWidget({
+      cloudName: 'dqix2wvqh',
+      cropping: true,
+      multiple: false,
+      croppingAspectRatio: 1,
+      maxFileSize: 15000000,
+      uploadPreset: 'profile_images'}, (error, result) => {
+      this.checkUploadResult(error, result, widget)
+    })
+
     const { classes } = this.props
     const {
       areas,
@@ -156,6 +179,7 @@ class BePartOfIt extends React.Component {
       about,
       projects,
       socialNetwork,
+      image,
       loading
     } = this.state
 
@@ -242,7 +266,7 @@ class BePartOfIt extends React.Component {
                         </div>
                       )
                     }}
-                    label="Áreas"
+                    label="Áreas *"
                     value={this.state.selectedAreas}
                     onChange={this.handleSelectChange}
                     input={<Input id="select-multiple-chip" />}
@@ -301,6 +325,18 @@ class BePartOfIt extends React.Component {
                   value={socialNetwork}
                   required
                 />
+                <div className={style.imageContainer}>
+
+                  {!image && <Button
+                    variant="contained"
+                    className={style.uploadImage}
+                    id="upload_image"
+                    onClick={() => this.uploadImage(widget)}
+                  >
+                    Adicionar foto
+                  </Button>}
+                  {image && <img className={style.img} src={image} alt="sua foto de perfil" />}
+                </div>
                 <div className={style.buttonContainer}>
                   <Button
                     variant="contained"
