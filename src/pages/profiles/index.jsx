@@ -32,30 +32,6 @@ class Profiles extends React.Component {
     this.setState({ profiles: filteredProfiles })
   }
 
-  renderProfileButton = profile => (
-    <Link
-      to={{
-        pathname: 'perfil',
-        state: profile,
-      }}
-      aria-label={`ir para perfil de ${profile.name}`}
-      key={profile.id}
-      className={style.itemContainer}
-    >
-      <div className={style.iconContainer}>
-        <Icon className={style.icon}>computer</Icon>
-      </div>
-      <div className={style.dataContainer}>
-        <span className={style.name}>
-          {profile.name}
-        </span>
-        <span>
-          {profile.description}
-        </span>
-      </div>
-    </Link>
-  )
-
   render() {
     const { profiles } = this.state
     return (
@@ -82,7 +58,7 @@ class Profiles extends React.Component {
           ]}
         />
         <main className={style.main}>
-          {profiles.map(p => <ProfileButton profileData={p} key={p._id} />)}
+          {profiles.map(p => <ProfileButton profileData={p} key={p._id} profiles={profiles} />)}
         </main>
       </div>
     )

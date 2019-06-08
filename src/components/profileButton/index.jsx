@@ -5,11 +5,11 @@ import Icon from '@material-ui/core/Icon'
 
 import style from './style.module.scss'
 
-const ProfileButton = ({ profileData }) => (
+const ProfileButton = ({ profileData, profiles }) => (
   <Link
     to={{
       pathname: `/perfil/${profileData._id}`,
-      state: profileData,
+      state: { profiles },
     }}
     aria-label={`ir para perfil de ${profileData.name}`}
     key={profileData.id}
@@ -31,6 +31,7 @@ const ProfileButton = ({ profileData }) => (
 
 ProfileButton.propTypes = {
   profileData: PropTypes.object.isRequired,
+  profiles: PropTypes.array.isRequired,
 }
 
 export default ProfileButton
