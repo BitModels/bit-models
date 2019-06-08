@@ -9,12 +9,12 @@ import { Link } from 'react-router-dom'
 import style from './style.module.scss'
 
 const Card = ({
-  image, altImage, title, pathName, areaData, ariaLabel,
+  image, altImage, title, pathName, areas, ariaLabel,
 }) => (
   <Link
     to={{
       pathname: pathName,
-      state: areaData,
+      state: { areas } ,
     }}
     aria-label={ariaLabel.toLowerCase()}
     className={style.link}
@@ -44,7 +44,11 @@ Card.propTypes = {
   title: PropTypes.string.isRequired,
   pathName: PropTypes.string.isRequired,
   ariaLabel: PropTypes.string.isRequired,
-  areaData: PropTypes.object.isRequired,
+  areas: PropTypes.array
+}
+
+Card.defaultProps = {
+  areas: []
 }
 
 export default Card

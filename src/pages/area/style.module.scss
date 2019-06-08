@@ -1,5 +1,8 @@
 @import "./../../index.scss";
 
+$button-width: 12vw;
+$button-height: 40px;
+
 .container {
   .areaContainer {
     display: flex;
@@ -29,7 +32,7 @@
         width: 70%;
         display: flex;
         flex-direction: column;
-        text-align: justify;
+        text-align: initial;
 
         @media (max-width: 768px) {
           width: 100%;
@@ -43,7 +46,7 @@
           }
         }
 
-        .p{
+        .p {
           margin: 0px;
         }
 
@@ -53,12 +56,59 @@
           margin: 20px 20px 10px 20px;
 
           @media (max-width: 768px) {
-            width:auto;
+            width: auto;
             height: 200px;
             margin: 20px 0px 10px 0px;
           }
-
         }
+      }
+
+      .buttonsContainer {
+        display: flex;
+        .li {
+          margin: 10px;
+          width: $button-width;
+          height: $button-height;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 18px;
+          background-color: #605e63;
+          border-radius: 5px;
+          box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+            0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+            0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+
+          .link {
+            text-decoration: none;
+            color: white;
+            width: 100%;
+            height: $button-height;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          @media (max-width: 425px) {
+            width: 40vw;
+            margin: 3px;
+            font-size: 15px;
+          }
+
+          @media (min-width: 426px) and (max-width: 990px) {
+            width: 30vw;
+            margin: 3px;
+            font-size: 15px;
+          }
+        }
+      }
+
+      .flexEnd {
+        justify-content: flex-end;
+      }
+
+      .spaceBetween {
+        justify-content: space-between;
       }
     }
   }
