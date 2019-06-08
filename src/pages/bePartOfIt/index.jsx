@@ -159,7 +159,6 @@ class BePartOfIt extends React.Component {
   }
 
   render() {
-    // eslint-disable-next-line no-undef
     const widget = window.cloudinary.createUploadWidget({
       cloudName: 'dqix2wvqh',
       cropping: true,
