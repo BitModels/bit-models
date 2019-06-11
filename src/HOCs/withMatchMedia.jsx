@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export const breakpoints = {
   isSmallScreen: '(max-width: 641px)',
-  isMediumScreen: '(min-width: 997px)',
+  isMediumScreen: '(min-width: 768pxpx)',
   isLargeScreen: '(min-width: 1281px)'
 }
 
