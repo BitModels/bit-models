@@ -37,6 +37,11 @@ class AdminHome extends React.Component {
     }
   }
 
+  goToprofile = (profile) => {
+    const { history } = this.props
+    history.push(`/perfil/${profile._id}`)
+  }
+
   renderItem = (profile) => {
     const { isMediumScreen } = this.props
 
@@ -81,7 +86,7 @@ class AdminHome extends React.Component {
 
         </div>
         <div className={style.buttonsContainer}>
-          <Button className={style.button} variant="outlined" >{isMediumScreen ? 'ver perfil completo' : 'ver perfil'}</Button>
+          <Button className={style.button} variant="outlined" onClick={()=> this.goToprofile(profile)}>{isMediumScreen ? 'ver perfil completo' : 'ver perfil'}</Button>
           <Button
             className={classNames(
               style.button,
