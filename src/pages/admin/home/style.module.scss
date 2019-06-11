@@ -1,0 +1,128 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    @media (min-width: 768px) {
+      flex: initial;
+      border-radius: 10px;
+      margin-top: 24px;
+      margin-bottom: 24px;
+      border: solid 1px #605E6350;
+      width: 692px;
+    }
+    .profileContainer {
+      padding: 12px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: solid 1px #605E6350;
+      flex-direction: column;
+
+      @media (min-width: 768px) {
+        flex-direction: row;
+      }
+
+      .dataContainer {
+        width: 100%;
+        display: flex;
+
+        @media (min-width: 768px) {
+          width: auto;
+        }
+
+        .textContainer {
+          width: 100%;
+
+          @media (min-width: 768px) {
+            width: 350px;
+          }
+
+          .text {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .name {
+            font-weight: 500;
+            font-size: 16px;
+
+            @media (min-width: 768px) {
+              font-size: 18px;
+            }
+          }
+        }
+        .img {
+          margin-right: 12px;
+          object-fit: cover;
+          object-position: top;
+          width: 80px;
+          height: 80px;
+
+          @media (min-width: 768px) {
+            width: 100px;
+            height: 100px;
+          }
+        }
+      }
+
+      .date {
+        font-style: italic;
+        padding-top: 4px;
+      }
+
+      .buttonsContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-end;
+        margin-top: 12px;
+
+        @media (min-width: 768px) {
+          flex-direction: column;
+          margin-top: 0;
+          width: auto;
+        }
+
+        .button {
+          height: 32px;
+
+          &.greenButton {
+            width: 106px;
+            color: #1cd149;
+            border-color: #1cd149;
+          }
+
+          &.redButton {
+            width: 106px;
+            color: red;
+            border-color: red;
+          }
+
+          &:first-child {
+            margin-right: 16px;
+
+            @media (min-width: 768px) {
+              margin-right: 0;
+              margin-bottom: 12px;
+            }
+          }
+        }
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+

@@ -11,8 +11,7 @@ import BePartOfIt from './pages/bePartOfIt'
 import Profiles from './pages/profiles'
 import Profile from './pages/profile'
 import Area from './pages/area'
-import Admin from './pages/admin'
-import AdminHome from './pages/admin/home'
+import { Login, AdminHome } from './pages/admin'
 
 const theme = createMuiTheme({
   palette: {
@@ -63,7 +62,7 @@ ReactDOM.render(
         <Route path="/perfis" component={Profiles} />
         <Route path="/perfil/:id" component={Profile} />
         <Route path="/area/:id" component={Area} />
-        <Route path="/admin" component={Admin} />
+        <Route path="/admin" component={Login} />
         <Route path="/admin-home" component={AdminHome} />
         <Route path="/" component={App} />
       </Switch>

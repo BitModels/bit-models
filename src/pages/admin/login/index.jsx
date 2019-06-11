@@ -6,9 +6,9 @@ import {
 } from "react-material-ui-form-validator"
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Button from "@material-ui/core/Button"
-import { historyPropType } from "../../propTypes/router"
+import { historyPropType } from "../../../propTypes/router"
 import style from './style.module.scss'
-import Header from '../../components/header'
+import Header from '../../../components/header'
 
 class Admin extends React.Component {
   state = {
@@ -36,7 +36,8 @@ class Admin extends React.Component {
       this.setState({loading: false})
       history.push('/admin-home')
     } catch(error) {
-      if(error.response.status === 401) {
+
+      if(error && error.response && error.response.status === 401) {
         this.setState({loading: false, errorMessage: 'Usuário ou senha inválido.'})
       } else {
         this.setState({loading: false, errorMessage: 'Um erro inexperado ocorreu.'})
