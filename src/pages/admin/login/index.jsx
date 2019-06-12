@@ -82,6 +82,7 @@ class Admin extends React.Component {
 
             <div className={style.buttonContainer}>
               <Button
+                disabled={loading}
                 className={style.button}
                 variant="contained"
                 color="primary"

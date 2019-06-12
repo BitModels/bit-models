@@ -7,6 +7,7 @@ import { matchPropType, locationPropType } from '../../propTypes/router'
 import style from './style.module.scss'
 import Header from '../../components/header'
 import NavBar from '../../components/navBar'
+import { selectImage } from '../../utils'
 
 class Profile extends React.Component {
   state = {
@@ -185,7 +186,7 @@ class Profile extends React.Component {
                   </div>
                 </article>
                 <aside className={style.aside}>
-                  <img className={style.img} src={profile.image} alt={`foto de ${profile.name}`} />
+                  <img className={style.img} src={profile.image ? profile.image : selectImage(new Date(profile.updatedAt))} alt={`foto de ${profile.name}`} />
                   <div>
                     <span className={style.infoTitle}>Localização: </span>
                     <span className={style.info}>{profile.location}</span>
