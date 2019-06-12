@@ -41,6 +41,9 @@ class Profile extends React.Component {
       url: `/profiles/${this.props.match.params.id}`,
     })
 
+    if (!profile.image) {
+      profile.image = selectImage(new Date(profile.updatedAt))
+    }
     // eslint-disable-next-line react/no-did-update-set-state
     this.setState({
       id: this.props.match.params.id,
@@ -186,7 +189,7 @@ class Profile extends React.Component {
                   </div>
                 </article>
                 <aside className={style.aside}>
-                  <img className={style.img} src={profile.image ? profile.image : selectImage(new Date(profile.updatedAt))} alt={`foto de ${profile.name}`} />
+                  <img className={style.img} src={profile.image} alt={`foto de ${profile.name}`} />
                   <div>
                     <span className={style.infoTitle}>Localização: </span>
                     <span className={style.info}>{profile.location}</span>

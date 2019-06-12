@@ -30,8 +30,20 @@ class AdminHome extends React.Component {
         }
       })
 
-      const updatedProfiles = profiles.sort((a, b) =>
+      let updatedProfiles = profiles.sort((a, b) =>
         (new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()))
+
+      updatedProfiles = updatedProfiles.map((p) => {
+        let newP = { ...p }
+        if (!p.image) {
+          newP = {
+            ...p,
+            image: selectImage(new Date(p.updatedAt))
+          }
+        }
+        console.log('teste:', p, newP)
+        return newP
+      })
 
       this.setState({ profiles: updatedProfiles })
     } catch (error) {
@@ -39,7 +51,7 @@ class AdminHome extends React.Component {
       if(error && error.response && error.response.status === 401) {
         history.push('/admin')
       } else {
-        this.setState({ errorMessage: 'Um erro inexperado ocorreu.'})
+        this.setState({ errorMessage: 'Um erro inesperado ocorreu.'})
       }
     }
   }
@@ -68,7 +80,7 @@ class AdminHome extends React.Component {
       const newProfiles = [...profiles]
       const index = profiles.findIndex(item => item._id === profile._id)
       newProfiles.splice(index, 1)
-      let updatedProfiles = [...newProfiles, profileResponse]
+      let updatedProfiles = [...newProfiles, {...profileResponse, image: profile.image}]
 
       updatedProfiles = updatedProfiles.sort((a, b) =>
         (new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()))
@@ -76,7 +88,7 @@ class AdminHome extends React.Component {
       this.setState({ loading: false, profiles: updatedProfiles } )
 
     } catch(error) {
-      this.setState({loading: false, errorMessage: 'Um erro inexperado ocorreu.'})
+      this.setState({loading: false, errorMessage: 'Um erro inesperado ocorreu.'})
     }
   }
 
@@ -88,7 +100,7 @@ class AdminHome extends React.Component {
     return (
       <div key={profile._id} className={style.profileContainer}>
         <div className={style.dataContainer}>
-          <img className={style.img} src={profile.image ? profile.image : selectImage(new Date(profile.updatedAt))} alt={`imagem de perfil da ${profile.name}`} />
+          <img className={style.img} src={profile.image} alt={`imagem de perfil da ${profile.name}`} />
           <div>
             {!isMediumScreen ?
               <div className={style.textContainer}>

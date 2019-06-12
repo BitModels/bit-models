@@ -40,7 +40,7 @@ class Admin extends React.Component {
       if(error && error.response && error.response.status === 401) {
         this.setState({loading: false, errorMessage: 'Usuário ou senha inválido.'})
       } else {
-        this.setState({loading: false, errorMessage: 'Um erro inexperado ocorreu.'})
+        this.setState({loading: false, errorMessage: 'Um erro inesperado ocorreu.'})
       }
     }
   };

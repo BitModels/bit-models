@@ -1,6 +1,6 @@
 @import './../../index.scss';
 
-  .itemContainer{
+  .itemContainer {
     width: 345px;
     height: 10vh;
     margin: 10px;
@@ -9,6 +9,14 @@
     align-items: flex-start;
     text-decoration: none;
     color: black;
+
+    .img {
+      object-fit: cover;
+      object-position: top;
+      width: 45px;
+      height: 45px;
+      border-radius: 5px;
+    }
 
     .iconContainer{
       background-color: $green-bit-us;
@@ -19,7 +27,7 @@
       align-items: center;
       justify-content: center;
 
-      .icon{
+      .icon {
         color: #605E63;
       }
     }

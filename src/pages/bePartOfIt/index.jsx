@@ -1,6 +1,7 @@
 import React from "react"
 import axios from "axios"
 import PropTypes from "prop-types"
+import classNames from 'classnames'
 import { withStyles } from "@material-ui/core/styles"
 import Input from "@material-ui/core/Input"
 import MenuItem from "@material-ui/core/MenuItem"
@@ -74,13 +75,16 @@ class BePartOfIt extends React.Component {
     selectedAreas: [],
     areas: [],
     name: "",
+    description: "",
     location: "",
     education: "",
     about: "",
     projects: "",
     socialNetwork: "",
     loading: false,
-    image: ''
+    image: '',
+    submittedProfile: false,
+    error: false,
   };
 
   async componentDidMount() {
@@ -117,6 +121,7 @@ class BePartOfIt extends React.Component {
     const {
       selectedAreas,
       name,
+      description,
       location,
       education,
       about,
@@ -125,13 +130,14 @@ class BePartOfIt extends React.Component {
       image
     } = this.state
     try {
-      this.setState({loading: true})
+      this.setState({loading: true, submittedProfile: false, error: false})
       await axios({
         method: "post",
         url: "/profile",
         data: {
           areas: selectedAreas,
           name,
+          description,
           location,
           education,
           about,
@@ -141,9 +147,24 @@ class BePartOfIt extends React.Component {
         }
       })
 
-      this.setState({loading: false})
+      this.setState({
+        loading: false,
+        selectedAreas: [],
+        name: "",
+        description: "",
+        location: "",
+        education: "",
+        about: "",
+        projects: "",
+        socialNetwork: "",
+        image: '',
+        submittedProfile: true,
+        error: false})
     } catch(error) {
-      this.setState({loading: false})
+      this.setState({
+        loading: false,
+        submittedProfile: true,
+        error: true})
     }
   };
 
@@ -173,13 +194,16 @@ class BePartOfIt extends React.Component {
     const {
       areas,
       name,
+      description,
       location,
       education,
       about,
       projects,
       socialNetwork,
       image,
-      loading
+      loading,
+      submittedProfile,
+      error
     } = this.state
 
     return (
@@ -223,6 +247,17 @@ class BePartOfIt extends React.Component {
                   validators={["required"]}
                   errorMessages={[ERROR_MESSAGES.REQUIRED]}
                   value={name}
+                  required
+                />
+                <TextValidator
+                  id="description"
+                  label="Título"
+                  placeholder="Ex.: Desenvolvedora de Software"
+                  onChange={e => this.setState({ description: e.target.value })}
+                  className={style.input}
+                  validators={["required"]}
+                  errorMessages={[ERROR_MESSAGES.REQUIRED]}
+                  value={description}
                   required
                 />
                 <TextValidator
@@ -336,6 +371,12 @@ class BePartOfIt extends React.Component {
                   </Button>}
                   {image && <img className={style.img} src={image} alt="sua foto de perfil" />}
                 </div>
+                {submittedProfile && !error && <div className={style.message}>
+                  <span>Seu perfil foi enviado com sucesso e em breve estará disponível no BitModels. Obrigada!</span>
+                </div>}
+                {submittedProfile && error && <div className={classNames(style.message, style.error)}>
+                  <span>Um erro inesperado ocorreu. Tente novamente dentro de alguns instantes.</span>
+                </div>}
                 <div className={style.buttonContainer}>
                   <Button
                     variant="contained"

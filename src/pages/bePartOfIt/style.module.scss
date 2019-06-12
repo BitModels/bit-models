@@ -48,6 +48,18 @@
         .textarea{
           margin-top: 20px;
         }
+        .message {
+          padding: 20px;
+          border-radius: 10px;
+          border: solid 2px #1cd149;
+          background-color: #1cd14940;
+          display: flex;
+          justify-content: center;
+          &.error {
+            border: solid 2px #f40000;
+            background-color: #f4000040
+          }
+        }
         .buttonContainer {
           display: flex;
           justify-content: flex-end;

@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import Icon from '@material-ui/core/Icon'
-
+import { selectImage } from '../../utils'
 import style from './style.module.scss'
 
 const ProfileButton = ({ profileData, profiles }) => (
@@ -15,9 +14,7 @@ const ProfileButton = ({ profileData, profiles }) => (
     key={profileData.id}
     className={style.itemContainer}
   >
-    <div className={style.iconContainer}>
-      <Icon className={style.icon}>computer</Icon>
-    </div>
+    <img className={style.img} src={profileData.image ? profileData.image : selectImage(new Date(profileData.updatedAt))} alt={`imagem de perfil da ${profileData.name}`} />
     <div className={style.dataContainer}>
       <span className={style.name}>
         {profileData.name}
